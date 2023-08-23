@@ -1,8 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Login from "./pages/login";
+import News from "./pages/news";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Login />} path="/" />
+        <Route element={<News />} path="/news" />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
