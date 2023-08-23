@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Introduction to CSS</title>
+    <!-- memanggil file css dari external -->
+    <link rel="stylesheet" href="index.css">
+    <!--internal style-->
+    <style>
+        .introduction-internal {
+            background-color: blue;
+        }
+
+        .introduction-internal h1,
+        p {
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="introduction-internal">
+        <h1>Welcome to introduction CSS</h1>
+        <p>Learning about CSS and layouting</p>
+    </div>
+    <!-- inline style -->
+    <div style="background-color: brown">
+        <h1 style="color: white;">Welcome to introduction CSS</h1>
+        <p style="color: white;">Learning about CSS and layouting</p>
+    </div>
+    <!-- panggil dari external style -->
+    <div class="introduction-external">
+        <h1>Welcome to introduction CSS</h1>
+        <p class="desc_1">Learning about CSS and layouting</p>
+        <p class="desc_2">Use external css for styling</p>
+    </div>
+    <section class="layout_1">
+        <div class="shape_1"></div>
+        <div class="shape_2"></div>
+        <div class="shape_3"></div>
+    </section>
+    <section class="layout_2">
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+        <div class="content_image_1"></div>
+    </section>
+</body>
+
+</html>

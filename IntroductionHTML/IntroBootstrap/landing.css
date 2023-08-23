@@ -1,0 +1,51 @@
+.layout {
+    margin:10px;
+    width: 100%;
+    height: max-content;
+}
+
+.layout .content_1 {
+    height: 50px;
+    background-color: brown;
+}
+
+.layout .content_2 {
+    height: 50px;
+    background-color: rgb(253, 7, 7);
+}
+
+.layout .content_3 {
+    height: 50px;
+    background-color: yellow;
+}
+
+.layout .content_4 {
+    height: 50px;
+    background-color: blue;
+}
+
+.card-content {
+    margin:10px;
+    width:100%;
+    height: max-content;
+}
+
+.card-content .btn {
+    width: 100px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    justify-content: center;
+}
+
+.card-content .btn:hover {
+   background-color: rgb(0, 88, 0);
+   color: white
+}
+
+.lines {
+    width: 1px;
+    height: 100%;
+    border: 1px solid brown;
+    position: absolute;
+}

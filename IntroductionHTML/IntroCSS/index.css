@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../IntroCSS/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../IntroCSS/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../IntroCSS/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2 {
+    font-family: "Poppins-Semibold";
+}
+
+p {
+    font-family: "Poppins-Regular";
+}
+
+
+.introduction-external {
+    background-color: orange;
+}
+
+.introduction-external .desc_1 {
+    color: black
+}
+
+.introduction-external .desc_2 {
+    color: brown;
+    font-style: italic;
+}
+
+.layout_1 {
+    background-color: brown;
+    width: 100%;
+    height: 100%;
+}
+
+.layout_1 .shape_1 {
+    width: 200px;
+    height: 300px;
+    background-color: green;
+    margin: 5px 10px 20px 30px;
+    padding: 5px 10px 20px 30px;
+}
+
+.layout_1 .shape_2 {
+    width: 500px;
+    height: 300px;
+    background-color: yellow;
+}
+
+.layout_1 .shape_3 {
+    width: 70%;
+    height: 100px;
+    background-color: pink;
+}
+
+.layout_2 {
+    width: 100%;
+    height: max-content;
+    justify-content: center;
+    margin: 10px 0px 0px 0px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.layout_2 .content_image_1 {
+    width: 300px;
+    height: 300px;
+    border: 1px solid;
+    margin: 10px;
+    align-items: center;
+    background-size: cover;
+    background-image: url("https://tigernewspaper.com/wp-content/uploads/2015/07/minions.jpg");
+}

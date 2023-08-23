@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    padding: 0px
+}
+
+.layout_1 {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.layout_1 .shape {
+    margin: 10px;
+    width: 125px;
+    height: 125px;
+    background-color: brown;
+    background-size: cover;
+    background-image: url("https://tigernewspaper.com/wp-content/uploads/2015/07/minions.jpg");;
+}
