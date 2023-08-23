@@ -1,20 +1,34 @@
 import { useState } from "react";
+import { useNavigate, NavigateFunction } from "react-router-dom";
+import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 
 const Login = () => {
+  const navigate: NavigateFunction = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
+    Cookies.set("username", username, { path: "/" });
+    Cookies.set("password", password, { path: "/" });
+
     if (username !== "" && password !== "") {
       Swal.fire({
         icon: "success",
         title: "Success",
         text: `Welcome to News App, ${username}`,
         confirmButtonText: "OK",
+      }).then((response) => {
+        if (response.isConfirmed) {
+          navigate("/news", {
+            state: {
+              username: username,
+            },
+          });
+        }
       });
     } else {
       Swal.fire({
