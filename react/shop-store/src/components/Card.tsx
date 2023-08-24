@@ -5,14 +5,14 @@ interface CardProps {
   title?: string;
   image?: string;
   category?: string;
-  price?: string;
+  price?: string | number;
 }
 
 const Card: FC<CardProps> = ({ id, title, image, category, price }) => {
   return (
     <div
       id={id}
-      className="w-80 p-2 h-max bg-white rounded-md shadow-md flex flex-col"
+      className="w-80 p-10 h-max bg-white rounded-md shadow-md flex flex-col"
     >
       <img
         src={
@@ -22,9 +22,9 @@ const Card: FC<CardProps> = ({ id, title, image, category, price }) => {
         }
         className="w-full h-60 rounded-md"
       />
-      <h2 className="font-semibold my-2">{title}</h2>
+      <h2 className="font-semibold my-2 truncate">{title}</h2>
       <p>Category : {category}</p>
-      <p className="font-bold">Price : {price}</p>
+      <p className="font-bold">Price : Rp {price}</p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
-import Ecommerce from "../../assets/ecommerce.jpg";
+import Ecommerce from "../../assets/6511563.jpg";
 
 import Button from "../../components/Button";
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import Card from "../../components/Card";
 
 const Product = () => {
@@ -27,9 +28,8 @@ const Product = () => {
       <div className="mt-10 mb-20 mx-5">
         <h2 className="font-semibold text-emerald-700 text-xl">{greeting}</h2>
       </div>
-      <div className="h-max mx-5 grid grid-cols-4 mx-auto">
-        <Card id="shop" />
-        <Card id="shop" />
+      <div className="h-max mx-5 grid grid-cols-4 gap-x-5 gap-y-5 mx-auto">
+        <Card id="id" />
       </div>
     </section>
   );
