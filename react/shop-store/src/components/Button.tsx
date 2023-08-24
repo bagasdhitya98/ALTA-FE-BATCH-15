@@ -11,7 +11,7 @@ const Button: FC<ButtonProps> = ({ id, label, onClick }) => {
     <button
       id={id}
       onClick={onClick}
-      className="w-full h-12 bg-blue-500 rounded-md text-white font-semibold"
+      className="w-full h-12 bg-emerald-500 hover:bg-emerald-600 hover:border-none focus:outline-none rounded-md text-white font-semibold"
     >
       {label}
     </button>
