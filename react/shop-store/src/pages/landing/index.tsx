@@ -1,4 +1,5 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import Ecommerce from "../../assets/6511563.jpg";
 
@@ -22,7 +23,7 @@ const Landing = () => {
           <Button
             id="started"
             label="Jelajahi Toko"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/product")}
           />
         </div>
         <div className="w-full h-screen flex justify-center items-center">

@@ -35,7 +35,12 @@ const Login = () => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Failed",
+          text: `Something went wrong : ${error}`,
+          confirmButtonText: "OK",
+        });
       });
   };
 

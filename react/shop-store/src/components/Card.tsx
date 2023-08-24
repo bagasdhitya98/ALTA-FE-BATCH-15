@@ -1,4 +1,5 @@
-import { FC } from "react";
+import React, { FC } from "react";
+import Button from "./Button";
 
 interface CardProps {
   id: string;
@@ -6,9 +7,17 @@ interface CardProps {
   image?: string;
   category?: string;
   price?: string | number;
+  onClick?: React.MouseEventHandler;
 }
 
-const Card: FC<CardProps> = ({ id, title, image, category, price }) => {
+const Card: FC<CardProps> = ({
+  id,
+  title,
+  image,
+  category,
+  price,
+  onClick,
+}) => {
   return (
     <div
       id={id}
@@ -22,9 +31,14 @@ const Card: FC<CardProps> = ({ id, title, image, category, price }) => {
         }
         className="w-full h-60 rounded-md"
       />
-      <h2 className="font-semibold my-2 truncate">{title}</h2>
-      <p>Category : {category}</p>
-      <p className="font-bold">Price : Rp {price}</p>
+      <div className="my-5">
+        <h2 className="font-semibold my-2 truncate">{title}</h2>
+        <p>Category : {category}</p>
+        <p className="font-bold">Price : Rp {price}</p>
+      </div>
+      <div className="w-40 h-10 my-5">
+        <Button id="detail" label="Lihat Detail" onClick={onClick} />
+      </div>
     </div>
   );
 };
