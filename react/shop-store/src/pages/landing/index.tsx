@@ -22,7 +22,7 @@ const Landing = () => {
           <Button
             id="started"
             label="Jelajahi Toko"
-            onClick={() => navigate("/shop/product")}
+            onClick={() => navigate("/login")}
           />
         </div>
         <div className="w-full h-screen flex justify-center items-center">
