@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../components/Button";
 
 const Detail = () => {
   const location = useLocation();
+  const navigate: NavigateFunction = useNavigate();
   const id = location?.state?.id;
 
   const [data, setData] = useState<any>();
@@ -22,6 +23,10 @@ const Detail = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleAddToCart = () => {
+    navigate("/cart");
   };
 
   useEffect(() => {
@@ -42,26 +47,30 @@ const Detail = () => {
             <div className="flex flex-row gap-5">
               <div className="w-20">
                 <Button
-                  id="increment"
-                  label="+"
-                  onClick={() => setQuantity(quantity + 1)}
-                />
-              </div>
-              <input
-                className="bg-white focus:outline-none border border-emerald-600 rounded-md text-center"
-                onChange={(e: any) => setQuantity(e.target.value)}
-                value={quantity}
-              />
-              <div className="w-20">
-                <Button
                   id="decrement"
                   label="-"
                   onClick={() => setQuantity(quantity - 1)}
                 />
               </div>
+              <input
+                className="bg-white focus:outline-none border border-emerald-600 rounded-md text-center"
+                onChange={(e: any) => setQuantity(e.target.value)}
+                value={quantity <= 0 ? 0 : quantity}
+              />
+              <div className="w-20">
+                <Button
+                  id="increment"
+                  label="+"
+                  onClick={() => setQuantity(quantity + 1)}
+                />
+              </div>
             </div>
             <div className="w-96">
-              <Button id="add_to_cart" label="Add To Cart" />
+              <Button
+                id="add_to_cart"
+                label="Add To Cart"
+                onClick={() => handleAddToCart()}
+              />
             </div>
           </div>
         </div>

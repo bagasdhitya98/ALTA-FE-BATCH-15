@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { NavigateFunction, useNavigate } from "react-router";
 import { FaShoppingCart, FaCog } from "react-icons/fa";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
@@ -59,8 +60,11 @@ const Navbar: FC<NavbarProps> = ({ quantity }) => {
         <div className="text-emerald-700 font-semibold text-xl">
           {greeting}, {username ? username : "User"}
         </div>
-        <div className="flex items-center space-x-4">
-          <div className="cursor-pointer flex items-center mx-10">
+        <div className="flex items-center space-x-12">
+          <div className="cursor-pointer flex items-center">
+            <BsEye className="text-emerald-700 text-lg mx-2" />
+          </div>
+          <div className="cursor-pointer flex items-center">
             <FaShoppingCart className="text-emerald-700 text-lg mx-2" /> :{" "}
             {quantity ? quantity : 0}
           </div>
