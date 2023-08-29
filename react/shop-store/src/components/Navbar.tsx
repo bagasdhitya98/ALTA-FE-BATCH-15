@@ -7,9 +7,10 @@ import Cookies from "js-cookie";
 
 interface NavbarProps {
   quantity?: number;
+  onClick?: React.MouseEventHandler;
 }
 
-const Navbar: FC<NavbarProps> = ({ quantity }) => {
+const Navbar: FC<NavbarProps> = ({ quantity, onClick }) => {
   const username = Cookies.get("username");
   const navigate: NavigateFunction = useNavigate();
   const [showSettingsDropdown, setShowSettingsDropdown] =
@@ -61,7 +62,7 @@ const Navbar: FC<NavbarProps> = ({ quantity }) => {
           {greeting}, {username ? username : "User"}
         </div>
         <div className="flex items-center space-x-12">
-          <div className="cursor-pointer flex items-center">
+          <div className="cursor-pointer flex items-center" onClick={onClick}>
             <BsEye className="text-emerald-700 text-lg mx-2" />
           </div>
           <div className="cursor-pointer flex items-center">
