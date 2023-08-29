@@ -31,18 +31,16 @@ const Detail = () => {
   };
 
   const handleAddToCart = () => {
-    const newItem: Item[] | string = [
-      {
-        id: data?.id,
-        title: data?.title,
-        image: data?.image,
-        description: data?.description,
-        price: data?.price,
-        quantity: quantity,
-      },
-    ];
+    const newItem: Item[] | string = {
+      id: data?.id,
+      title: data?.title,
+      image: data?.image,
+      description: data?.description,
+      price: data?.price,
+      quantity: quantity,
+    };
 
-    dispatch(addItem([...newItem]));
+    dispatch(addItem(newItem));
     localStorage.setItem("items", cart.items);
     Swal.fire({
       icon: "success",

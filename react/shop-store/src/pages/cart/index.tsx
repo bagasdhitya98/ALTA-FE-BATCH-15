@@ -21,7 +21,9 @@ const Cart = () => {
                 </div>
                 <div className="font-semibold">
                   <p>Total Items : {item?.quantity}</p>
-                  <p>Total Price : {item?.price}</p>
+                  <p>
+                    Total Price : Rp {item?.price * item?.quantity * 14000}{" "}
+                  </p>
                 </div>
               </div>
             </div>
