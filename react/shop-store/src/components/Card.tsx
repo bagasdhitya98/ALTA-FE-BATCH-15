@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import React, { FC } from "react";
 import Button from "./Button";
 
@@ -18,6 +20,8 @@ const Card: FC<CardProps> = ({
   price,
   onClick,
 }) => {
+  const language = useSelector((state: any) => state.theme.language);
+
   return (
     <div
       id={id}
@@ -33,11 +37,19 @@ const Card: FC<CardProps> = ({
       />
       <div className="my-5">
         <h2 className="font-semibold my-2 truncate">{title}</h2>
-        <p>Category : {category}</p>
-        <p className="font-bold">Price : Rp {price}</p>
+        <p>
+          {language ? "Category" : "Kategori"} : {category}
+        </p>
+        <p className="font-bold">
+          {language ? "Price" : "Harga"} : Rp {price}
+        </p>
       </div>
       <div className="w-40 h-10 my-5">
-        <Button id="detail" label="Lihat Detail" onClick={onClick} />
+        <Button
+          id="detail"
+          label={`${language ? "See Detail" : "Lihat Detail"}`}
+          onClick={onClick}
+        />
       </div>
     </div>
   );
