@@ -5,29 +5,13 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 import Card from "../../components/Card";
-import Button from "../../components/Button";
+import Navbar from "../../components/Navbar";
 
 const Product = () => {
   const navigate = useNavigate();
-  const username = Cookies.get("username");
   const token = Cookies.get("token");
 
-  const [greeting, setGreeting] = useState<string>("");
   const [data, setData] = useState<[]>([]);
-
-  const getTimezone = () => {
-    const currentHour = new Date().getHours();
-
-    if (currentHour >= 5 && currentHour < 12) {
-      setGreeting("Selamat Pagi");
-    } else if (currentHour >= 12 && currentHour < 15) {
-      setGreeting("Selamat Siang");
-    } else if (currentHour >= 15 && currentHour < 18) {
-      setGreeting("Selamat Sore");
-    } else {
-      setGreeting("Selamat Malam");
-    }
-  };
 
   const getAllProduct = () => {
     axios
@@ -38,21 +22,6 @@ const Product = () => {
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  const handleLogout = () => {
-    Cookies.remove("username");
-    Cookies.remove("token");
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Successfully Logout",
-      confirmButtonText: "OK",
-    }).then((response) => {
-      if (response?.isConfirmed) {
-        navigate("/");
-      }
-    });
   };
 
   const navigateTo = (id: number) => {
@@ -77,21 +46,13 @@ const Product = () => {
   };
 
   useEffect(() => {
-    getTimezone();
     getAllProduct();
   }, []);
 
   return (
     <section className="w-screen h-screen flex flex-col">
-      <div className="mt-10 mb-20 mx-5 flex justify-between">
-        <h2 className="font-semibold text-emerald-700 text-xl">
-          {greeting}, {username ? username : "User"}
-        </h2>
-        <div className="w-40 h-10">
-          <Button id="logout" label="Logout" onClick={() => handleLogout()} />
-        </div>
-      </div>
-      <div className="h-max mx-5 grid grid-cols-4 gap-x-5 gap-y-5 mx-auto">
+      <Navbar />
+      <div className="h-max mx-5 grid grid-cols-4 gap-x-5 gap-y-5 mx-auto my-14">
         {data &&
           data?.map((item: any, index: any) => {
             return (
