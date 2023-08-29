@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../components/Button";
+import { CartState, Item, addItem } from "../../features/cartSlice";
+import Swal from "sweetalert2";
 
 const Detail = () => {
   const location = useLocation();
   const navigate: NavigateFunction = useNavigate();
   const id = location?.state?.id;
 
+  const dispatch = useDispatch();
+  const cart = useSelector((state: { cart: CartState }) => state.cart);
   const [data, setData] = useState<any>();
   const [quantity, setQuantity] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
@@ -26,7 +31,29 @@ const Detail = () => {
   };
 
   const handleAddToCart = () => {
-    navigate("/cart");
+    const newItem: Item[] | string = [
+      {
+        id: data?.id,
+        title: data?.title,
+        image: data?.image,
+        description: data?.description,
+        price: data?.price,
+        quantity: quantity,
+      },
+    ];
+
+    dispatch(addItem([...newItem]));
+    localStorage.setItem("items", cart.items);
+    Swal.fire({
+      icon: "success",
+      title: "Success Added",
+      text: "Successfully add to cart",
+      confirmButtonText: "OK",
+    }).then((response) => {
+      if (response.isConfirmed) {
+        navigate("/cart");
+      }
+    });
   };
 
   useEffect(() => {
