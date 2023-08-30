@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchTodos,
-  addTodos,
-  updateTodo,
-  deleteTodo,
-  selectTodos,
-} from "../../features/todosSlice";
+import { fetchTodos, addTodos, selectTodos } from "../../features/todosSlice";
 
 import Input from "../../components/Input";
 import TodoList from "../../components/TodoList";
